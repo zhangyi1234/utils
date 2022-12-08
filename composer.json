@@ -1,0 +1,12 @@
+{
+    "name": "zhangyi/utils",
+    "description": "常用方法",
+    "type": "library",
+    "authors": [
+        {
+            "name": "张毅",
+            "email": "namezhangyida@163.com"
+        }
+    ],
+    "require": {}
+}
