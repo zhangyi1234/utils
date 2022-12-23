@@ -152,8 +152,13 @@ class SMS
 		$runtime = new RuntimeOptions([]);
 		try {
 			// 复制代码运行请自行打印 API 的返回值
-			$res = $this->client->sendSmsWithOptions($sendSmsRequest, $runtime);
-			return [0,json_encode($res,JSON_UNESCAPED_UNICODE)];
+			$result = $this->client->sendSmsWithOptions($sendSmsRequest, $runtime);
+			$res = json_decode($result,true);
+			if ($res['Code'] === 'OK'){
+				return [0,$result];
+			}else{
+				return [$res['Code'],$result];
+			}
 		}
 		catch (Exception $error) {
 			if (!($error instanceof TeaError)) {
@@ -161,7 +166,7 @@ class SMS
 			}
 			// 如有需要，请打印 error
 			Utils::assertAsString($error->message);
-			return [9999,json_encode($error,JSON_UNESCAPED_UNICODE)];
+			return [999999,json_encode($error,JSON_UNESCAPED_UNICODE)];
 		}
 	}
 
