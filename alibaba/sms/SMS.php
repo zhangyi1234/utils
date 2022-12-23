@@ -1,5 +1,5 @@
 <?php
-namespace utils\alibaba\sms;
+namespace zhangyi\utils\alibaba\sms;
 
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Dysmsapi;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsRequest;

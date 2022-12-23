@@ -1,5 +1,5 @@
 <?php
-namespace utils;
+namespace zhangyi\utils;
 class Utils{
 	protected $version;
 
@@ -18,5 +18,9 @@ class Utils{
 	public function getVersion()
 	{
 		return $this->version;
+	}
+
+	function makeRandNumber($length){
+
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-use utils\alibaba\sms\SMS;
+use zhangyi\utils\alibaba\sms\SMS;
 
 SMS::getInstance()
 	->config('1111','2222')
