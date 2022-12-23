@@ -9,5 +9,8 @@
         }
     ],
     "license": "proprietary",
-    "require": {}
+    "require": {
+        "alibabacloud/dysmsapi-20170525": "2.0.23",
+      "ext-json": "*"
+    }
 }

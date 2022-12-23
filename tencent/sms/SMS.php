@@ -2,7 +2,7 @@
 
 namespace utils\tencent\sms;
 
-class Sms
+class SMS
 {
 
 }
