@@ -132,7 +132,7 @@ class SMS
 	 * zhangyi [2022-12-23]
 	 * @return SMS
 	 */
-	public function init($accessKeyId, $accessKeySecret){
+	public function config($accessKeyId, $accessKeySecret){
 		$conf = new Config([
 			'accessKeyId'=>$accessKeyId,
 			'accessKeySecret'=>$accessKeySecret
