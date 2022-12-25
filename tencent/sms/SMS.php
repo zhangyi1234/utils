@@ -1,6 +1,6 @@
 <?php
 
-namespace zhangyi\utils\tencent\sms;
+namespace utils\tencent\sms;
 
 class SMS
 {

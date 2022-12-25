@@ -12,5 +12,10 @@
     "require": {
         "alibabacloud/dysmsapi-20170525": "2.0.20",
       "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "utils\\": "./"
+        }
     }
 }

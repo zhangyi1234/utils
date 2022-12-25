@@ -1,5 +1,5 @@
 <?php
-namespace zhangyi\utils;
+namespace utils;
 class Utils{
 	protected $version;
 

@@ -1,5 +1,5 @@
 <?php
-namespace zhangyi\utils\alibaba\sms;
+namespace utils\alibaba\sms;
 
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Dysmsapi;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsRequest;
@@ -29,6 +29,7 @@ class SMS
 	public function getPhoneNumbers()
 	{
 		return $this->PhoneNumbers;
+
 	}
 
 	/**
@@ -170,5 +171,8 @@ class SMS
 		}
 	}
 
+	function asd(){
+	    echo "asd";
+    }
 
 }
