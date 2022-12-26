@@ -33,4 +33,14 @@ class Utils{
 //		var_dump($max);
 		return rand($min,$max);
 	}
+
+	/**
+	 * 对象转数组
+	 * @param $obj
+	 * zhangyi [2022-12-26]
+	 * @return void
+	 */
+	public static function toArray(&$obj){
+		$obj = json_decode(json_encode($obj),true);
+	}
 }

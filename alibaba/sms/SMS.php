@@ -149,22 +149,22 @@ class SMS
 	 * @return array
 	 */
 	function exec(){
-		$sendSmsRequest = new SendSmsRequest([
-			'PhoneNumbers'=>$this->getPhoneNumbers(),
-			'SignName'=>$this->getSignName(),
-			'TemplateCode'=>$this->getTemplateCode(),
-			'TemplateParam'=>$this->getTemplateParam(),
-			'OutId'=>$this->getOutId(),
-		]);
+		$sendSmsRequest = new SendSmsRequest([]);
+		$sendSmsRequest->phoneNumbers = $this->getPhoneNumbers();
+		$sendSmsRequest->signName = $this->getSignName();
+		$sendSmsRequest->templateCode = $this->getTemplateCode();
+		$sendSmsRequest->templateParam = json_encode($this->getTemplateParam());
+		$sendSmsRequest->outId = $this->getOutId();
+
 		$runtime = new RuntimeOptions([]);
 		try {
 			// 复制代码运行请自行打印 API 的返回值
 			$result = $this->client->sendSmsWithOptions($sendSmsRequest, $runtime);
-			$res = json_decode($result,true);
-			if ($res['Code'] === 'OK'){
+			\utils\Utils::toArray($result);
+			if ($result['body']['code'] === 'OK'){
 				return [0,$result];
 			}else{
-				return [$res['Code'],$result];
+				return [999999,$result];
 			}
 		}
 		catch (Exception $error) {
