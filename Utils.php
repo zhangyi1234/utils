@@ -20,7 +20,17 @@ class Utils{
 		return $this->version;
 	}
 
-	function makeRandNumber($length){
-
+	/**
+	 * 生成随机纯数字
+	 * @param $length
+	 * zhangyi [2022-12-26]
+	 * @return int
+	 */
+	public static function makeRandNumber($length){
+		$min = pow(10,$length-1);
+		$max = pow(10,$length) -1 ;
+//		var_dump($min);
+//		var_dump($max);
+		return rand($min,$max);
 	}
 }
