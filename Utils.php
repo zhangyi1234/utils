@@ -38,9 +38,9 @@ class Utils{
 	 * 对象转数组
 	 * @param $obj
 	 * zhangyi [2022-12-26]
-	 * @return void
+	 * @return mixed
 	 */
-	public static function toArray(&$obj){
-		$obj = json_decode(json_encode($obj),true);
+	public static function toArray($obj){
+		return json_decode(json_encode($obj),true);
 	}
 }

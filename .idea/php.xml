@@ -22,6 +22,7 @@
       <path value="$PROJECT_DIR$/vendor/alibabacloud/gateway-spi" />
       <path value="$PROJECT_DIR$/vendor/alibabacloud/credentials" />
       <path value="$PROJECT_DIR$/vendor/alibabacloud/dysmsapi-20170525" />
+      <path value="$PROJECT_DIR$/vendor/tencentcloud/tencentcloud-sdk-php" />
     </include_path>
   </component>
   <component name="PhpUnit">

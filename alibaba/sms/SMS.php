@@ -172,8 +172,8 @@ class SMS
 				$error = new TeaError([], $error->getMessage(), $error->getCode(), $error);
 			}
 			// 如有需要，请打印 error
-			Utils::assertAsString($error->message);
-			return [999999,json_encode($error,JSON_UNESCAPED_UNICODE)];
+//			Utils::assertAsString($error->message);
+			return [999999,$error->getMessage()];
 		}
 	}
 
