@@ -149,7 +149,13 @@ class SMS
 	 * @return array
 	 */
 	function exec(){
-		$sendSmsRequest = new SendSmsRequest([]);
+		$sendSmsRequest = new SendSmsRequest([
+			'PhoneNumbers'=>$this->getPhoneNumbers(),
+			'SignName'=>$this->getSignName(),
+			'TemplateCode'=>$this->getTemplateCode(),
+			'TemplateParam'=>$this->getTemplateParam(),
+			'OutId'=>$this->getOutId(),
+		]);
 		$runtime = new RuntimeOptions([]);
 		try {
 			// 复制代码运行请自行打印 API 的返回值
