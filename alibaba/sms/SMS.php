@@ -163,9 +163,9 @@ class SMS
 			\utils\Utils::toArray($result);
 			if ($result['body']['code'] === 'OK'){
 				return [0,$result];
-			}else{
-				return [999999,$result];
 			}
+
+			return [999999,$result];
 		}
 		catch (Exception $error) {
 			if (!($error instanceof TeaError)) {
