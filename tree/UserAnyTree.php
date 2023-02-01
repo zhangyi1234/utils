@@ -8,7 +8,7 @@ use Exception;
  */
 class UserAnyTree
 {
-	public static $instance = null;
+	private static $instance = null;
 	private function __construct(){}
 	/**
 	 * 获取实例
@@ -114,18 +114,17 @@ class UserAnyTree
 	function changeTreeNode($nodeId,$parentId){
 		$oldNode = $this->tree[intval($nodeId)];
 		if ( ! $oldNode ) throw new Exception("节点[$nodeId]不存在");
-		if ( $this->tree[intval($parentId)] ) throw new Exception("父节点[$parentId]未找到");
+		if ( ! $this->tree[intval($parentId)] ) throw new Exception("父节点[$parentId]未找到");
 
 
 		//原上级节点的叶子节点集合变化
-		if($oldNode->getParentId()){
-			$oldLeafIdList = $this->tree[$oldNode->getParentId()]->getLeafIdList();
-			$idx = array_search($nodeId,$oldLeafIdList );
-			$this->tree[$oldNode->getParentId()]->setLeafIdList( array_splice($oldLeafIdList,$idx,1) );
-		}
+		$oldLeafIdList = $this->tree[$oldNode->getParentId()]->getLeafIdList();
+		$idx = array_search($nodeId,$oldLeafIdList );
+		array_splice($oldLeafIdList,$idx,1);
+		$this->tree[$oldNode->getParentId()]->setLeafIdList( $oldLeafIdList );
 
 		//新上级节点的叶子节点集合变化
-		$this->tree[intval($parentId)]->setLeafIdList(array_merge($this->tree[intval($parentId)],[intval($nodeId)]));
+		$this->tree[intval($parentId)]->setLeafIdList(array_merge($this->tree[intval($parentId)]->getLeafIdList(),[intval($nodeId)]));
 
 		//本节点上级变化
 		$this->tree[intval($nodeId)]->setParentId(intval($parentId));
@@ -148,8 +147,8 @@ class UserAnyTree
 
 		while( count($nodeQueue) > 0 ){
 			$outNode = array_shift($nodeQueue);
-			//网体中不包含父节点
-			if($outNode->getId() == $treeNodeId){
+			//网体中不包含当前节点
+			if($outNode->getId() != $treeNodeId){
 				$res[] = $outNode->getId();
 			}
 

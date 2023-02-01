@@ -21,8 +21,20 @@ $r = UserAnyTree::getInstance()
 	->appendTreeNode(12,10)
 	->appendTreeNode(13,11)
 	->appendTreeNode(14,11)
-	->getAllLeafNode(11);
-
+	->getAllLeafNode(4);
+//	->getAllParentNode(9);
 print_r($r);
+$r2 = UserAnyTree::getInstance()->getAllLeafNode(14);
+print_r($r2);
+
+
+UserAnyTree::getInstance()->changeTreeNode(5,11);
+
+
+$r2 = UserAnyTree::getInstance()->getAllLeafNode(4);
+print_r($r2);
+$r2 = UserAnyTree::getInstance()->getAllLeafNode(11);
+print_r($r2);
+
 
 
